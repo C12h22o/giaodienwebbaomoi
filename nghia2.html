@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Tin Tức - Phong Cách Mới</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Giữ font cơ bản hoặc thay đổi nếu muốn */
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* Nền trắng giống ảnh */
+        }
+        .container {
+            width: 80%; /* Có thể điều chỉnh độ rộng */
+            max-width: 1100px; /* Giới hạn độ rộng tối đa */
+            margin: 20px auto; /* Căn giữa và thêm khoảng cách trên dưới */
+            display: flex;
+            padding: 0 15px; /* Thêm padding ngang cho container */
+            position: relative;
+            min-height: 100vh;
+            gap: 30px; /* Khoảng cách giữa main-content và sidebar */
+        }
+
+        .main-content {
+            flex: 3;
+            /* margin-right: 20px; Xóa margin này, dùng gap trong container */
+            border-right: 1px solid #eee; /* Đường kẻ phân cách nhẹ */
+            padding-right: 30px; /* Khoảng cách nội dung với đường kẻ */
+        }
+        .sidebar {
+            flex: 1;
+            padding-top: 50px; /* Đẩy sidebar xuống một chút */
+        }
+        .category-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #c00; /* Màu đỏ đậm cho mục */
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            padding-left: 10px;
+			margin-left: -10px;
+        }
+        .header {
+            font-size: 28px; /* Giảm kích thước tiêu đề */
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .meta {
+            font-size: 13px; /* Kích thước chữ meta */
+            color: #555; /* Màu chữ đậm hơn */
+            margin-bottom: 20px; /* Khoảng cách dưới meta */
+            display: flex;
+            justify-content: space-between; /* Đẩy icon sang phải */
+            align-items: center;
+            border-bottom: 1px solid #eee; /* Đường kẻ dưới meta */
+            padding-bottom: 10px;
+        }
+        .meta .date-time {
+             /* Không cần style đặc biệt */
+        }
+        .meta .social-icons {
+            display: flex;
+            gap: 8px; /* Khoảng cách giữa các icon */
+        }
+        .meta .social-icons a {
+            color: #555; /* Màu icon */
+            text-decoration: none;
+            font-size: 16px; /* Kích thước icon */
+        }
+        .meta .social-icons a:hover {
+            color: #007bff; /* Màu khi hover */
+        }
+
+        .article {
+            padding: 0; /* Bỏ padding mặc định nếu không cần */
+            margin-bottom: 20px;
+        }
+        .article img {
+            width: 100%;
+            height: auto;
+            border-radius: 3px; /* Bo góc nhẹ */
+            margin-bottom: 5px; /* Khoảng cách dưới ảnh */
+        }
+        .article p { /* Màu chữ, kiểu chữ đoạn văn */
+            font-size: 16px; /* Giảm kích thước chữ đoạn văn */
+            color: #333; /* Màu chữ đậm hơn */
+            line-height: 1.7; /* Tăng line-height cho dễ đọc */
+            margin-bottom: 15px; /* Khoảng cách giữa các đoạn */
+        }
+         .article .lead { /* Đoạn mô tả ngắn - Sapo */
+            font-size: 17px; /* Kích thước chữ lead */
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #444; /* Màu chữ lead */
+            line-height: 1.6;
+        }
+        .article .image-caption { /* Kiểu cho chú thích ảnh */
+            text-align: center; /* Căn trái */
+            font-size: 14px; /* Cỡ chữ nhỏ hơn */
+            color: #666; /* Màu chữ xám */
+            margin-top: 5px; /* Khoảng cách trên chú thích */
+            margin-bottom: 25px; /* Khoảng cách dưới chú thích */
+        }
+
+        /* Sidebar styles giữ nguyên như cũ */
+         .sidebar .article {
+            display: flex;
+            align-items: center;
+            padding: 10px 0; /* Chỉ cần padding trên dưới */
+            border-bottom: 1px solid #eee; /* Đường kẻ phân cách bài */
+         }
+         .sidebar .article:last-child {
+            border-bottom: none; /* Bỏ đường kẻ ở bài cuối */
+         }
+         .sidebar .article img {
+            width: 100px;
+            height: 60px;
+            margin-right: 10px;
+            object-fit: cover; /* Đảm bảo ảnh không bị méo */
+            border-radius: 3px;
+         }
+         .sidebar .article h3 {
+            font-size: 14px;
+            margin: 0 0 5px 0; /* Khoảng cách dưới tiêu đề */
+            color: #333;
+            font-weight: bold;
+            line-height: 1.4;
+         }
+         .sidebar .article .time {
+            font-size: 12px;
+            color: #999;
+         }
+        .hot-header {
+            display: flex;
+            align-items: center;
+            color: #e45116; /* Màu cam */
+            margin-bottom: 15px; /* Khoảng cách dưới tiêu đề Nóng */
+        }
+        .hot-text {
+            font-size: 20px; /* Giảm kích thước chữ Nóng */
+            font-weight: bold; /* In đậm */
+            text-transform: uppercase;
+            margin-right: 10px;
+        }
+        .hot-underline {
+            flex-grow: 1; /* Cho đường kẻ chiếm hết phần còn lại */
+            height: 2px; /* Độ dày đường kẻ */
+            background-color: #e45116;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+
+            <div class="category-title">
+                Chính trị</div>
+            <div class="header">
+                Đại sứ Việt Nam tại Lào viếng Chủ tịch Khamtay Siphandone
+            </div>
+            <div class="meta">
+                 <span class="date-time">Thứ Bảy, 12:30, 05/04/2025</span>
+                 <div class="social-icons">
+                     <a href="#" title="Chia sẻ Facebook"><i class="fab fa-facebook-square"></i></a>
+                     <a href="#" title="Gửi Email"><i class="fas fa-envelope"></i></a>
+                     <a href="#" title="In bài viết"><i class="fas fa-print"></i></a>
+                 </div>
+            </div>
+            <div class="article">
+				<p>VOV.VN - Trong bầu không khí trang nghiêm và xúc động, các đại biểu đã dành một phút mặc niệm tưởng nhớ nguyên Chủ tịch Đảng, nguyên Chủ tịch nước CHDCND Lào Khamtay Siphandone.</p>
+				
+				<p>Sáng 5/4, Đoàn đại biểu Đại sứ quán, các cơ quan đại diện Việt Nam tại Lào và cộng đồng người Việt tại Lào do Đại sứ đặc mệnh toàn quyền nước Cộng hòa XHCN Việt Nam tại nước Cộng hoà DCND Lào Nguyễn Minh Tâm dẫn đầu, đến đặt vòng hoa, viếng đồng chí Khamtay Siphandone.</p>
+			
+                <img src="nghia/anh2.jpg">
+                <p class="image-caption">Đoàn đại biểu Đại sứ quán, các cơ quan đại diện Việt Nam tại Lào và cộng đồng người Việt tại Lào đặt vòng hoa, viếng đồng chí Khamtay Siphandone</p>
+
+				<p>Trong bầu không khí trang nghiêm và xúc động, các đại biểu đã dành một phút mặc niệm tưởng nhớ nguyên Chủ tịch Đảng, nguyên Chủ tịch nước CHDCND Lào Khamtay Siphandone.</p>
+				
+				<p>Thay mặt cán bộ, nhân viên Đại sứ quán Việt Nam và các cơ quan đại diện Việt Nam bên cạnh Đại sứ quán, Đại sứ Nguyễn Minh Tâm đã gửi lời chia buồn sâu sắc tới toàn thể gia quyến cố Chủ tịch Khamtay Siphandone.</p>
+				
+				<img src="nghia/anh3.jpg">
+                <p class="image-caption">Các đại biểu dành một phút mặc niệm tưởng nhớ đồng chí Khamtay Siphandone</p>
+				
+				<p>Đại sứ Nguyễn Minh Tâm nhấn mạnh, nguyên Chủ tịch Đảng, nguyên Chủ tịch nước CHDCND Lào Khamtay Siphandone là nhà lãnh đạo xuất sắc, người con ưu tú của nhân dân các dân tộc Lào, người chiến sĩ cách mạng kiên trung, suốt đời hy sinh phấn đấu vì độc lập dân tộc, tự do, hạnh phúc của nhân dân và sự phát triển phồn vinh của đất nước Lào.</p>
+				
+				<a href="nghia/video.mp4"> 
+				<img src="nghia/anhvideo.jpg" alt="anhvideo"></a>
+				
+				<p>Sau lễ viếng, Đại sứ Việt Nam tại Lào Nguyễn Minh Tâm đã xúc động ghi sổ tang: “Đại sứ quán, các cơ quan bên cạnh Đại sứ quán và cộng đồng người Việt Nam tại Lào xin gửi tới Đảng, Nhà nước, nhân dân các dân tộc Lào và gia quyến đồng chí Khamtay Siphandone lời chia buồn sâu sắc”.</p>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="hot-header">
+                <span class="hot-text">NÓNG 24H</span>
+                <hr class="hot-underline">
+            </div>
+
+            <div class="article">
+                <img src="nong/r1.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Việt Nam vẫn có 'cửa' để đàm phán lại mức thuế với Mỹ</h3>
+                    <div class="time">3 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r2.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Tỷ phú Elon Musk vẫn là cố vấn của Tổng thống Mỹ Donald Trump</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r3.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Bộ GDĐT lý giải yêu cầu quy đổi điểm tương đương giữa các phương thức xét tuyển ĐH</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r4.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Samsung sẽ được hoàn thuế hơn 582 tỉ đồng khi nào?</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r5.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Giá cà phê hôm nay 4/4: Giá cà phê Robusta và Arabica giảm mạnh</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r6.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Xuất khẩu nông sản sang thị trường Mỹ: Trong nguy có cơ, doanh nghiệp chủ động tìm cơ hội</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong2.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Hà Nội có thể giảm khoảng 50% đơn vị hành chính cấp xã sau sắp xếp bộ máy</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong3.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Trung Quốc sẽ hành động như thế nào với chính sách thuế quan mới của Mỹ?</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong4.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Thuế quan của Tổng thống Donald Trump được tính toán như thế nào?</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong5.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Chính sách thuế của Mỹ: Thủ tướng Tây Ban Nha đề xuất chi hơn 15 tỷ USD để hỗ trợ nền kinh tế</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+             <div class="article">
+                 <img src="nong/nong6.png" alt="Hình ảnh bài viết phụ">
+                 <div>
+                     <h3>Trung Quốc và loạt nước châu Á phản ứng trước thuế quan của Mỹ</h3>
+                     <div class="time">9 giờ</div>
+                 </div>
+             </div>
+             <div class="article">
+                 <img src="nong/nong7.png" alt="Hình ảnh bài viết phụ">
+                 <div>
+                     <h3>3 nước từ chối cho Mỹ dùng căn cứ không quân để tấn công Iran</h3>
+                     <div class="time">9 giờ</div>
+                 </div>
+             </div>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Tin Tức</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+        .share-buttons {
+            position: fixed;
+            left: 20px;
+            top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .share-buttons button {
+            width: 60px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+        }
+        .share-buttons button:nth-child(1) { background-color: #00aaff; }
+        .share-buttons button:nth-child(2) { background-color: #3b5998; }
+        .share-buttons button:nth-child(3) { background-color: #00cc00; }
+        .share-buttons button:nth-child(4) { background-color: #cccccc; }
+        
+        .main-content {
+            flex: 3;
+            margin-right: 20px;
+        }
+        .sidebar {
+            flex: 1;
+        }
+        .category {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .header {
+            font-size: 35px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        .meta span {
+            margin-right: 10px;
+        }
+        .meta .highlight {
+            color: #00aaff;
+            font-weight: bold;
+        }
+        .article {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            
+        }
+        .article img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .article p { /*màu chữ , chữ thường*/
+            font-size: 18px;
+            color: black;
+            line-height: 1.6;
+        }
+        .article .lead { /*chữ đậm*/
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            
+        }
+        .sidebar .article {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .sidebar .article img {
+            width: 100px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        .sidebar .article h3 {
+            font-size: 14px;
+            margin: 0;
+            color: #333;
+        }
+        .sidebar .article .time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        
+        .cangiua{
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hot-header {
+            display: flex;
+            align-items: center;
+        
+            color: #e45116; /* Màu cam */
+        }
+        .textblue{
+            color: #26a69a; /* Màu xanh */
+            font-weight: normal; /* Cỡ chữ thường */
+            text-transform: uppercase; /* Chuyển đổi chữ thành in hoa */
+        }
+        
+        .hot-text, .number-text {
+            font-size: 34px; /* Kích thước chữ */
+            font-weight: normal; /* Cỡ chữ thường */
+            text-transform: uppercase; /* Chuyển đổi chữ thành in hoa */
+            margin-right: 10px; /* Khoảng cách giữa chữ và đường gạch */
+        }
+        
+        .hot-underline {
+            width: 85px; /* Độ rộng của đường gạch */
+            height: 3px; /* Độ dày của đường gạch */
+            background-color: #e45116;
+            margin-left: 3px; /* Khoảng cách giữa chữ và đường gạch */
+            margin-top: 38px; /* Điều chỉnh khoảng cách giữa đường gạch và chữ */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="share-buttons">
+            <button>Zalo</button>
+            <button>FB</button>
+            <button>Like</button>
+            <button>Copy</button>
+           
+        </div>
+        <div class="main-content">
+            
+            <div class="header">
+                Hà Nội có thể giảm khoảng 50% đơn vị hành chính cấp xã sau sắp xếp bộ máy
+            </div>
+            <div class="meta">
+                <span>TIN TỨC</span>
+                <span class="highlight">★</span>
+                <span>31/3/2025</span>
+                <span>1 ĐÁNH GIÁ</span>
+                <span>254 LƯỢT QUAN TÂM</span>
+            </div>
+            <div class="article">
+                 <p class="lead">Giám đốc Sở Nội vụ Hà Nội cho hay, theo dự kiến phương án sắp xếp đơn vị hành chính cấp xã (thực hiện Kết luận số 127-KL/TƯ), ngoài các nguyên tắc chung, Hà Nội cũng xác định một số nguyên tắc riêng của Thủ đô để bảo đảm việc thực hiện hiệu quả, phù hợp với thực tiễn.</p>
+                <img src="nong/nong2.png" alt="Hình ảnh bài viết chính">
+               
+                <p><div class = "cangiua">Chủ tịch Ủy ban Nhân dân thành phố Hà Nội Trần Sỹ Thanh phát biểu tại hội nghị. (Ảnh: hanoimoi.vn)</p></div>
+                <p>Tại hội nghị giao ban quý 1 do Thường trực Thành ủy, Hội đồng Nhân dân, Ủy ban Nhân dân thành phố Hà Nội tổ chức với lãnh đạo các quận, huyện, thị xã, bàn về triển khai sắp xếp đơn vị hành chính và tăng cường quản lý đất đai, chiều ngày 3/4, Giám đốc Sở Nội vụ Trần Đình Cảnh đã trình bày báo cáo về việc triển khai thực hiện Kết luận số 127-KL/TƯ ngày 28/2 của Bộ Chính trị, Ban Bí thư về nghiên cứu, đề xuất tiếp tục sắp xếp tổ chức bộ máy của hệ thống chính trị; Kết luận 128- KL/TƯ của Bộ Chính trị về chủ trương công tác cán bộ.</p>
+
+                <p>Theo Giám đốc Sở Nội vụ Trần Đình Cảnh, dự kiến phương án sắp xếp đơn vị hành chính cấp xã (thực hiện Kết luận số 127-KL/TƯ), ngoài các nguyên tắc chung, Hà Nội cũng xác định một số nguyên tắc riêng của Thủ đô để bảo đảm việc thực hiện hiệu quả, phù hợp với thực tiễn.</p>
+
+                <p>Cụ thể, thành phố sẽ chọn 5 vùng động lực, 5 trục phát triển để bảo đảm lâu dài; tổ chức lại các đơn vị hành chính có tính đến yếu tố quy hoạch trong tương lai khi thực hiện quy hoạch, cần cụ thể hóa quy hoạch ngay giai đoạn hiện nay (vừa tính hiện tại, tương lai), tính đến xu thế theo quy hoạch định hướng phát triển: Hai đô thị trực thuộc Thủ đô (đô thị phía Bắc và đô thị phía Tây), định hướng phát triển vùng du lịch, vùng công nghiệp, dư địa để phát triển của từng vùng, từng địa phương...</p>
+
+                <p>Thành phố cũng xác định phải bảo đảm giữ được tính đặc trưng, đặc thù, bản sắc của các địa phương, đặc biệt là những vùng văn hóa tiêu biểu (vùng văn hóa Thăng Long, vùng văn hóa xứ Đoài, vùng văn hóa Kinh Bắc, vùng văn hóa Sơn Nam Thượng...); bảo đảm được chức năng của từng địa phương (như đơn vị hành chính cơ sở Ba Đình là trung tâm chính trị hành chính quốc gia của cả nước, đơn vị hành chính cơ sở Hoàn Kiếm phải bảo tồn và phát huy được các giá trị văn hóa của 36 phố phường cổ của kinh thành Thăng Long xưa...).</p>
+                
+                <img src="nong/nong2,1.png" alt="Hình ảnh bài viết chính">
+                <p><div class = "cangiua">Giám đốc Sở Nội vụ Hà Nội Trần Đình Cảnh báo cáo về công tác sắp xếp bộ máy hành chính cấp xã. (Ảnh: hanoimoi.vn)</p></div>
+                <p>Về dự kiến số lượng đơn vị hành chính cấp xã, theo dự kiến của Trung ương, tổng số lượng đơn vị hành chính xã, phường sau sắp xếp giảm khoảng 50% so với tổng số lượng đơn vị hành chính cấp xã trước sắp xếp.</p>
+
+                <p>Hiện nay, Hà Nội có 526 đơn vị hành chính cấp xã, gồm 160 phường, 345 xã và 21 thị trấn. Nếu thực hiện theo tỷ lệ trên, Hà Nội sẽ giảm từ 526 phường, xã, thị trấn xuống còn 263 đơn vị hành chính cấp xã.</p>
+
+                <p>Tuy nhiên, đây mới chỉ là dự thảo phương án được đưa ra thảo luận tại Hội nghị giao ban quý 1/2025. Thời gian tới, căn cứ báo cáo đề xuất của Đảng ủy Ủy ban Nhân dân thành phố, Thường trực Thành ủy, Ban Thường vụ Thành ủy sẽ thống nhất chủ trương về quan điểm, mục tiêu, yêu cầu, tiêu chí và dự kiến số đơn vị hành chính cấp xã thực hiện sắp xếp; chỉ đạo thực hiện quy trình lấy ý kiến của lãnh đạo các sở, ban, ngành; các quận, huyện, thị xã về dự kiến phương án sắp xếp đơn vị hành chính cấp xã.</p>
+
+                <p>Liên quan tới công tác quản lý đất đai tại các quận, huyện, thị xã trong quá trình từ nay đến khi hoàn thành việc hợp nhất, sáp nhập đơn vị hành chính, ông Nguyễn Xuân Đại, Giám đốc Sở Nông nghiệp và Môi trường cho biết hiện nay, tổng diện tích tự nhiên toàn thành phố Hà Nội là 335.983,58ha, trong đó đất nông nghiệp có 195.890ha; đất phi nông nghiệp chiếm 137.458ha và đất chưa sử dụng là 2.635,21ha.</p>
+
+                <p>Thành phố đã cấp Giấy chứng nhận quyền sử dụng đất lần đầu cho các hộ gia đình và cá nhân đạt 99,6%. Tính đến tháng 3/2025, thành phố đã thu được khoảng 6.860 tỷ đồng, đạt 34% chỉ tiêu thu từ đấu giá quyền sử dụng đất năm 2025. Cùng với đó, việc thanh tra, kiểm tra và xử lý vi phạm về quản lý đất đai được tăng cường, đã xử lý khoảng 28.913 trường hợp, đạt 57,37% tổng số vi phạm cần xử lý.</p>
+
+                <p>Ông Nguyễn Xuân Đại nhấn mạnh, thực hiện Kết luận số 127-KL/TƯ sẽ tạo chuyển biến mạnh, tác động tích cực đến công tác quản lý đất đai, đồng thời, tạo sự tập trung, thống nhất trong quản lý đất đai; giảm tầng nấc hành chính trung gian; nâng cao trách nhiệm, năng lực quản lý ở cấp xã. Đặc biệt là đẩy mạnh số hóa và hiện đại hóa quản lý đất đai; tăng cường hiệu quả công tác thanh tra, kiểm tra và xử lý vi phạm.</p>
+
+                <p>Đặc biệt, Thành ủy và Ủy ban Nhân dân thành phố đã kịp thời ban hành các văn bản chỉ đạo, bảo đảm việc quản lý đất đai phát huy được tính tích cực, hiệu quả từ công tác sáp nhập.</p>
+
+                <p>Trong quá trình thực hiện sáp nhập và hợp nhất đơn vị hành chính, Ủy ban Nhân dân thành phố đề ra các giải pháp cụ thể, trong đó, các sở, ngành, ủy ban nhân dân các quận, huyện, thị xã nghiêm túc thực hiện các chỉ đạo của Thành ủy về tăng cường quản lý đất đai và xử lý vi phạm, đẩy mạnh ứng dụng công nghệ thông tin, đặc biệt là trí tuệ nhân tạo (AI) nhằm đẩy nhanh tiến độ giải quyết các thủ tục hành chính, đặc biệt đối với các dự án trọng điểm.</p>
+
+                <p>Ông Trần Đình Cảnh nhấn mạnh, việc thực hiện kết luận này sẽ góp phần thúc đẩy công tác quản lý đất đai, tăng cường công tác thanh tra, kiểm tra, xử lý vi phạm, đẩy mạnh ứng dụng công nghệ thông tin, đặc biệt là trí tuệ nhân tạo (AI) nhằm đẩy nhanh tiến độ giải quyết các thủ tục hành chính, đặc biệt đối với các dự án trọng điểm.    
+            
+            </div>
+            
+
+
+        </div>
+        <div class="sidebar">
+            <br><br><br>
+                <div class="hot-header">
+                    <span class="hot-text">NÓNG 24H</span>
+                    <hr class="hot-underline">
+                </div>
+                <br><br>
+            <div class="article">
+                <img src="nong/r1.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Việt Nam vẫn có 'cửa' để đàm phán lại mức thuế với Mỹ</h3>
+                    <div class="time">3 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r2.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Tỷ phú Elon Musk vẫn là cố vấn của Tổng thống Mỹ Donald Trump</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r3.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Bộ GDĐT lý giải yêu cầu quy đổi điểm tương đương giữa các phương thức xét tuyển ĐH</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r4.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Samsung sẽ được hoàn thuế hơn 582 tỉ đồng khi nào?</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r5.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Giá cà phê hôm nay 4/4: Giá cà phê Robusta và Arabica giảm mạnh</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r6.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Xuất khẩu nông sản sang thị trường Mỹ: Trong nguy có cơ, doanh nghiệp chủ động tìm cơ hội</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong2.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Hà Nội có thể giảm khoảng 50% đơn vị hành chính cấp xã sau sắp xếp bộ máy</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong3.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Trung Quốc sẽ hành động như thế nào với chính sách thuế quan mới của Mỹ?</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong4.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Thuế quan của Tổng thống Donald Trump được tính toán như thế nào?</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong5.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Chính sách thuế của Mỹ: Thủ tướng Tây Ban Nha đề xuất chi hơn 15 tỷ USD để hỗ trợ nền kinh tế</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong6.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Trung Quốc và loạt nước châu Á phản ứng trước thuế quan của Mỹ</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong7.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>3 nước từ chối cho Mỹ dùng căn cứ không quân để tấn công Iran</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+
+            
+            
+        </div>
+    </div>
+</body>
+</html>

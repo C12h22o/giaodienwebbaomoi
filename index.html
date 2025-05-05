@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Mới - Trang Thông Tin Điện Tử</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1 class="logo-text">BÁO <span>MỚI</span></h1>
+                <p class="logo-subtext">Trang thông tin điện tử</p>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Nhập nội dung tìm kiếm">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-icons">
+                <div class="login-icon" onclick="showLoginModal()">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu (Ẩn mặc định, hiện khi bấm 3 gạch) -->
+    <div class="menu" id="menu">
+        <div class="menu-content">
+            <div class="menu-section">
+                <h3>Bóng đá</h3>
+                <p>Giáo dục</p>
+                <p>Khoa học - Du học</p>
+                <p>Tuyên sinh 2024</p>
+            </div>
+            <div class="menu-section">
+                <h3>Thế giới</h3>
+                <p>Thời sự</p>
+                <p>Giao thông</p>
+                <p>Môi trường - Khí hậu</p>
+                <p>Du lịch</p>
+            </div>
+            <div class="menu-section">
+                <h3>Xã hội</h3>
+                <p>Nghệ thuật</p>
+                <p>Âm nhạc</p>
+                <p>Thời trang - Truyền hình</p>
+                <p>Giải trí</p>
+            </div>
+            <div class="menu-section">
+                <h3>Văn hóa</h3>
+                <p>Lao động - Việc làm</p>
+                <p>Tài chính</p>
+                <p>Chứng khoán</p>
+                <p>Kinh doanh</p>
+            </div>
+            <div class="menu-section">
+                <h3>Kinh tế</h3>
+                <p>Dịch vụ - Sản phẩm</p>
+                <p>Thị trường</p>
+            </div>
+            <div class="menu-section">
+                <h3>Giáo dục</h3>
+                <p>Học bổng - Du học</p>
+                <p>Đào tạo - Thi cử</p>
+            </div>
+            <div class="menu-section">
+                <h3>Thể thao</h3>
+                <p>Bóng đá Quốc tế</p>
+                <p>Bóng đá Việt Nam</p>
+                <p>Quần vợt</p>
+            </div>
+            <div class="menu-section">
+                <h3>Pháp luật</h3>
+                <p>An ninh - Trật tự</p>
+                <p>Hình sự - Dân sự</p>
+            </div>
+            <div class="menu-section">
+                <h3>Công nghệ</h3>
+                <p>CNTT - Viễn thông</p>
+                <p>Thiết bị - Phần cứng</p>
+            </div>
+            <div class="menu-section">
+                <h3>Khoa học</h3>
+                <p>Dinh dưỡng - Làm đẹp</p>
+                <p>Tình yêu - Giới tính</p>
+                <p>Khám phá</p>
+            </div>
+            <div class="menu-section">
+                <h3>Đời sống</h3>
+                <p>Quân lý - Quy hoạch</p>
+                <p>Không gian - Kiến trúc</p>
+            </div>
+            <div class="menu-section">
+                <h3>Xe cộ</h3>
+                <p>Ô tô</p>
+                <p>Xe máy</p>
+                <p>Đánh giá</p>
+            </div>
+            <div class="menu-section">
+                <h3>Nhà đất</h3>
+                <p>Mua bán nhà</p>
+                <p>Cho thuê nhà</p>
+                <p>Thiết kế</p>
+            </div>
+            <div class="menu-section">
+                <h3>Tiền ích</h3>
+                <p>Thời tiết hôm nay</p>
+                <p>Lịch âm</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li id="tab-nong" class="active" onclick="showTab('nong')">Nóng</li>
+                <li id="tab-moi" onclick="showTab('moi')">Mới</li>
+                <li id="tab-video" onclick="showTab('video')">Video</li>
+                <li id="tab-chude" onclick="showTab('chude')">Chủ đề</li>
+                <li># Năng lượng tích cực</li>
+                <li># Khám phá Việt Nam</li>
+                <li># Khám phá Thế giới</li>
+           </ul>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Modal Đăng nhập Zalo -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">×</span>
+            <h2>Tài khoản</h2>
+            <p>Bạn đồng ý với việc Đăng nhập/Đăng ký tư tài khoản liên kết Zalo</p>
+            <label>
+                <input type="checkbox" id="termsCheckbox">
+                Tội độc và đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a>
+            </label>
+            <button class="zalo-login-btn" onclick="loginWithZalo()" disabled>Đăng nhập Zalo</button>
+        </div>
+    </div>
+
+    
+    <!-- Nội dung chính -->
+    <div class="container main-content">
+        <!-- Tab Nóng -->
+        <div class="content" id="nongTab">
+            <div class="left-content">
+                <div class="main-article">
+                    <a href="nong1.html">
+                    <img src="nong/nong1.png" alt="Main Article" >
+                    </a>
+                    <h1>Chính sách thuế quan đối xứng của Tổng thống Trump tác động ra sao tới châu Á?</h1>
+                    <p class="time">Tin tức • 1 giờ • 2753 lượt quan tâm</p>
+                </div>
+                <div class="sub-articles">
+                    <div class="sub-article">
+                        <a href ="nong2.html"> 
+                        <img src="nong/nong2.png" alt="Sub Article 1">
+                        </a>
+                        <h3>Hà Nội có thể giảm khoảng 50% đơn vị hành chính cấp xã sau sắp xếp bộ máy</h3>
+                        <p class="time">Tin tức • 6 giờ</p>
+                    </div>
+                    <div class="sub-article">
+                        <img src="nong/nong3.png" alt="Sub Article 2">
+                        <h3>Trung Quốc sẽ hành động như thế nào với chính sách thuế quan mới của Mỹ?</h3>
+                        <p class="time">Nguồn LAB Động • 9 giờ</p>
+                    </div>
+                    <div class="sub-article">
+                        <img src="nong/nong4.png" alt="Sub Article 3">
+                        <h3>Thuế quan của Tổng thống Donald Trump được tính toán như thế nào?</h3>
+                        <p class="time">Nguồn LAB Động • 7 giờ</p>
+                    </div>
+                </div>
+
+
+
+                <div class="article-section">
+                    <h2>Nguồn căng bộ nhiệm Ngay</h2>
+
+
+                    <div class="article">
+                        <img src="nong/nong5.png" alt="Article 1">
+                        <div class="article-content">
+                            <h3>Chính sách thuế của Mỹ: Thủ tướng Tây Ban Nha đề xuất chi hơn 15 tỷ USD để hỗ trợ nền kinh tế</h3>
+                            <p class="time">Nguồn LAB Động • 2 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="nong/nong6.png" alt="Article 1">
+                        <div class="article-content">
+                            <h3>Trung Quốc và loạt nước châu Á phản ứng trước thuế quan của Mỹ</h3>
+                            <p class="time">Nguồn LAB Động • 2 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="nong/nong7.png" alt="Article 1">
+                        <div class="article-content">
+                            <h3>3 nước từ chối cho Mỹ dùng căn cứ không quân để tấn công Iran</h3>
+                            <p class="time">Nguồn LAB Động • 2 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="nong/nong8.png" alt="Article 1">
+                        <div class="article-content">
+                            <h3>Trung Quốc, Nhật Bản đồng loạt phản ứng mạnh trước chính sách thuế quan của Mỹ</h3>
+                            <p class="time">Nguồn LAB Động • 2 giờ</p>
+                        </div>
+                    </div>
+                    
+                    
+
+
+                </div>
+                <div class="article-section">
+                    <h2>Khám phá thế giới</h2>
+                    <div class="article">
+                        <img src="nong/kp1.png" alt="Article 2">
+                        <div class="article-content">
+                            <h3>Cảnh hoa anh đào đang bung nở rực rỡ khắp thế giới</h3>
+                            <p class="time">Vietnamnet • 4 giờ • 8 lượt quan tâm</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="nong/kp2.png" alt="Article 2">
+                        <div class="article-content">
+                            <h3>Cưỡi lạc đà, ngắm hoàng hôn trên sa mạc Sahara</h3>
+                            <p class="time">Vietnamnet • 4 giờ • 8 lượt quan tâm</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="nong/kp3.png" alt="Article 2">
+                        <div class="article-content">
+                            <h3>Khám phá những vườn quốc gia nổi tiếng nhất thế giới</h3>
+                            <p class="time">Vietnamnet • 4 giờ • 8 lượt quan tâm</p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="article">
+                    <img src="nong/r1.png" alt="Right Article 1">
+                    <div class="article-content">
+                        <h3>Việt Nam vẫn có 'cửa' để đàm phán lại mức thuế với Mỹ</h3>
+                        <p class="time">Vietnamnet • 8 giờ • 477 lượt quan tâm</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="nong/r2.png" alt="Right Article 2">
+                    <div class="article-content">
+                        <h3>Tỷ phú Elon Musk vẫn là cố vấn của Tổng thống Mỹ Donald Trump</h3>
+                        <p class="time">Nguồn LAB Động • 1 giờ</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="nong/r3.png" alt="Right Article 3">
+                    <div class="article-content">
+                        <h3>Bộ GDĐT lý giải yêu cầu quy đổi điểm tương đương giữa các phương thức xét tuyển ĐH</h3>
+                        <p class="time">Nguồn LAB Động • 16 phút • 31 lượt quan tâm</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="nong/r4.png" alt="Right Article 4">
+                    <div class="article-content">
+                        <h3>Samsung sẽ được hoàn thuế hơn 582 tỉ đồng khi nào?</h3>
+                        <p class="time">Tin tức • 1 giờ • 2753 lượt quan tâm</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="nong/r5.png" alt="Right Article 5">
+                    <div class="article-content">
+                        <h3>Giá cà phê hôm nay 4/4: Giá cà phê Robusta và Arabica giảm mạnh</h3>
+                        <p class="time">Nguồn LAB Động • 16 phút • 1 lượt quan tâm</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="nong/r6.png" alt="Right Article 6">
+                    <div class="article-content">
+                        <h3>Xuất khẩu nông sản sang thị trường Mỹ: Trong nguy có cơ, doanh nghiệp chủ động tìm cơ hội</h3>
+                        <p class="time">Nguồn LAB Động • 2 giờ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+        <!-- Tab Mới -->
+        <div class="content" id="moiTab" style="display: none;">
+            <div class="left-content">
+                <div class="article-section">
+                    <h2 class = "textblue">Tin mới</h2>
+                    <div class="article">
+                        <a href="nghia1.html">
+                        <img src="moi/a1.png" alt="Article 1"> </a>
+                        <div class="article-content">
+                            <h3>Tổng thống Mỹ chia sẻ về cuộc điện đàm 'rất hiệu quả' với Tổng Bí thư Tô Lâm</h3>
+                            <p class="time">Bình Phước • 15 phút • 3 lượt quan tâm</p>
+                        </div>
+                    </div>
+
+
+                    <div class="article">
+                        <img src="moi/a2.png" alt="Article 2">
+                        <div class="article-content">
+                            <h3>U17 Việt Nam hòa Australia, HLV Cristiano tự tin làm khó Nhật Bản</h3>
+                            <p class="time">Nguồn LAB Động • 21 phút • 1 lượt quan tâm</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="moi/a3.png" alt="Article 3">
+                        <div class="article-content">
+                            <h3>Cơ hội mới cho doanh nghiệp nhỏ và vừa phát triển</h3>
+                            <p class="time">Nguồn LAB Động • 21 phút • 31 lượt quan tâm</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="moi/a4.png" alt="Article 4">
+                        <div class="article-content">
+                            <h3>Bản tin nông sản hôm nay (5-4): Giá cà phê giảm mạnh, hồ tiêu lao dốc</h3>
+                            <p class="time">Vietnamnet • 1 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="moi/a5.png" alt="Article 5">
+                        <div class="article-content">
+                            <h3>Tiền ảo Pi Network chỉ còn nửa USD/Pi, nhà đầu tư nháo nhác</h3>
+                            <p class="time">Nguồn LAB Động • 7 phút</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="moi/a6.png" alt="Article 6">
+                        <div class="article-content">
+                            <h3>Trung Quốc áp thuế bổ sung 34% đối với tất cả hàng hóa Mỹ</h3>
+                            <p class="time">Nguồn LAB Động • 13 phút</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="moi/a7.png" alt="Article 7">
+                        <div class="article-content">
+                            <h3>Để doanh nghiệp Việt làm chủ công nghiệp đường sắt</h3>
+                            <p class="time">Pháp luật • 373 lượt quan tâm</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="moi/a8.png" alt="Article 8">
+                        <div class="article-content">
+                            <h3>Hé lộ hoạt động của ông Kim Jong Un vào ngày Hàn Quốc phế truất tổng thống</h3>
+                            <p class="time">Pháp luật • 16 phút</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="right-content">
+
+                <br><br><br>
+                <div class="hot-header">
+                    <span class="hot-text">NÓNG 24H</span>
+                    <hr class="hot-underline">
+                </div>
+                <br><br>
+
+
+                <div class="article">
+                    <img src="moi/r1.png" alt="Right Article 7">
+                    <div class="article-content">
+                        <h3>Mỹ áp thuế 46% với hàng hóa Việt Nam: Bộ Công an yêu cầu xử nghiêm việc đầu cơ nâng giá</h3>
+                        <p class="time">Sài Gòn • 21 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r2.png" alt="Right Article 8">
+                    <div class="article-content">
+                        <h3>Đà Nẵng 'khát' nhân sự lĩnh vực AI</h3>
+                        <p class="time">Tiền phong • 11 phút • 35 lượt quan tâm</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r3.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Tổng Bí thư Tô Lâm điện đàm với Tổng thống Hoa Kỳ Donald J.Trump</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r4.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Nhiều nghệ sĩ Việt đến chia buồn với Quốc Thiên tại Đồng Nai</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r5.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Trách nhiệm của bà Nguyễn Thị Kim Tiến trong sai phạm tại Dự án Bệnh viện Bạch Mai - Việt Đức cơ sở 2</h3>
+                        <p class="time">Pháp luật • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r6.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Thêm một học sinh Hà Tĩnh đạt điểm SAT gần tuyệt đối, top 1% thế giới</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r7.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Gemini 2.5 Pro - mô hình AI tiên tiến nhất của Google</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        
+
+        <!-- Tab Video -->
+        <div class="content" id="videoTab" >
+            <div class="left-content">
+                <div class="article-section">
+
+                    <h2 class = "textblue">Tin video</h2>
+                    <div class="article">
+                        <div class="article">
+                            <div class="video-icon-container">
+                                <a href="nghia2.html">
+                                <img src="video/a1.png" alt="Video 1"> </a>
+                                <i class="fas fa-video video-icon"></i>
+                            </div>
+                            <div class="article-content">
+                                <h3>Đại sứ Việt Nam tại Lào viếng Chủ tich Khamtay Siphandone</h3>
+                                <p class="time">Vietnamnet • 4 giờ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article">
+                        <div class="article">
+                            <div class="video-icon-container">
+                                <img src="video/a2.png" alt="Video 1">
+                                <i class="fas fa-video video-icon"></i>
+                            </div>
+                            <div class="article-content">
+                                <h3>Ngã ngửa trước những điều 'độc nhất vô nhị' ở Italy</h3>
+                                <p class="time">Nguồn LAB Động • 4 giờ</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article">
+                        <div class="article">
+                            <div class="video-icon-container">
+                                <img src="video/a3.png" alt="Video 1">
+                                <i class="fas fa-video video-icon"></i>
+                            </div>
+                            <div class="article-content">
+                                <h3>Giá vàng thế giới giảm mạnh</h3>
+                                <p class="time">Nguồn LAB Động • 9 giờ</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article">
+                        <div class="article">
+                            <div class="video-icon-container">
+                                <img src="video/a4.png" alt="Video 1">
+                                <i class="fas fa-video video-icon"></i>
+                            </div>
+                            <div class="article-content">
+                                <h3>Vn-Index giảm hơn 100 điểm tuần qua</h3>
+                                <p class="time">Vietnamnet • 4 giờ</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article">
+                        <div class="article">
+                            <div class="video-icon-container">
+                                <img src="video/a5.png" alt="Video 1">
+                                <i class="fas fa-video video-icon"></i>
+                            </div>
+                            <div class="article-content">
+                                <h3>Loạt tỷ phú mất hàng chục tỷ USD sau một đêm</h3>
+                                <p class="time">Nguồn LAB Động • 5 giờ</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="article">
+                        <div class="article">
+                            <div class="video-icon-container">
+                                <img src="video/a6.png" alt="Video 1">
+                                <i class="fas fa-video video-icon"></i>
+                            </div>
+                            <div class="article-content">
+                                <h3>5 doanh nghiệp sắp chốt quyền chia cổ tức</h3>
+                                <p class="time">Nguồn LAB Động • 9 giờ</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="right-content">
+
+                <br><br><br>
+                <div class="hot-header">
+                    <span class="hot-text">NÓNG 24H</span>
+                    <hr class="hot-underline">
+                </div><br><br>
+
+                <div class="article">
+                    <div class="article">
+                        <div class="video-icon-container">
+                            <img src="video/r1.png" alt="Video 1">
+                            <i class="fas fa-video video-icon1"></i>
+                        </div>
+                        <div class="article-content">
+                            <h3>Biểu tình bùng phát khắp nước Mỹ, Tổng thống Trump kêu gọi người dân 'kiên nhẫn'</h3>
+                            <p class="time">Nguồn Thế Giới • 1 giờ</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="article">
+                    <div class="article">
+                        <div class="video-icon-container">
+                            <img src="video/r2.png" alt="Video 1">
+                            <i class="fas fa-video video-icon1"></i>
+                        </div>
+                        <div class="article-content">
+                            <h3>Thức ăn cho lợn bỗng hóa “vàng xanh”, giá gần 1 triệu/kg vẫn bán “cháy hàng”</h3>
+                            <p class="time">Người đưa tin  • 1 giờ</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="article">
+                    <img src="video/r3.png" alt="Right Video 3">
+                    <div class="article-content">
+                        <h3>Tổng thống Mỹ Donald Trump quyết định bổ nhiệm gây chấn động Bộ Ngoại giao</h3>
+                        <p class="time">Hà Nội mới • 7 phút</p>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src="video/r4.png" alt="Right Video 3">
+                    <div class="article-content">
+                        <h3>CLB Hoàng Anh Gia Lai thắng đậm Bình Dương trên sân nhà</h3>
+                        <p class="time">Hà Nội mới • 7 phút</p>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <div class="article">
+                        <div class="video-icon-container">
+                            <img src="video/r2.png" alt="Video 1">
+                            <i class="fas fa-video video-icon1"></i>
+                        </div>
+                        <div class="article-content">
+                            <h3>Xe đầu kéo bốc cháy trên cao tốc Nghi Sơn-Diễn Châu</h3>
+                            <p class="time">Người đưa tin  • 1 giờ</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Tab Chủ đề -->
+        <div class="content" id="chudeTab" style="display: none;">
+            <div class="left-content">
+                <div class="article-section">
+                    <h2>#PHẠM MINH CHÍNH </h2>
+                    <div class="article">
+                        <div class="article">
+                            <div class="video-icon-container">
+                                <img src="chude/a1.png" alt="Video 1">
+                                <i class="fas fa-video video-icon"></i>
+                            </div>
+                            <div class="article-content">
+                                <h3>Hoa Kỳ là thị trường lớn nhất nhưng không phải duy nhất</h3>
+                                <p class="time">Đài phát thanh & truyền hình Hà Nội  • 1 giờ</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article">
+                        <img src="chude/a2.png" alt="Chủ đề 2">
+                        <div class="article-content">
+                            <h3>Thủ tướng: Mỹ là thị trường xuất khẩu lớn nhất nhưng không phải duy nhất</h3>
+                            <p class="time">Tài Chính Doanh Nghiệp • 8 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/a3.png" alt="Chủ đề 3">
+                        <div class="article-content">
+                            <h3>Thủ tướng: Rà soát, chuẩn bị kỹ phương án, kế hoạch đàm phán cụ thể với Hoa Kỳ</h3>
+                            <p class="time">Công Dân • 8 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/a4.png" alt="Chủ đề 4">
+                        <div class="article-content">
+                            <h3>Thủ tướng: Sớm trình phương án xử lý Ngân hàng SCB</h3>
+                            <p class="time">Tiền phong • 9 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/a5.png" alt="Chủ đề 5">
+                        <div class="article-content">
+                            <h3>Thủ tướng Phạm Minh Chính: Phải xử lý linh hoạt, hiệu quả, đảm bảo các mục tiêu phát triển</h3>
+                            <p class="time">Công thương • 9 giờ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-section">
+                    <h2>#TRUMP</h2>
+                    <div class="article">
+                        <img src="chude/b1.png" alt="Chủ đề 6">
+                        <div class="article-content">
+                            <h3>VCCI gửi thư kiến nghị chính quyền Tổng thống Mỹ Donald Trump tạm hoãn việc áp thuế đối ứng với hàng hóa của Việt Nam</h3>
+                            <p class="time">Nhân Dân • 5 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/b2.png" alt="Chủ đề 7">
+                        <div class="article-content">
+                            <h3>Thuế quan của ông Trump bắt đầu phát huy uy lực</h3>
+                            <p class="time">Nguồn LAB Động • 5 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/b3.png" alt="Chủ đề 7">
+                        <div class="article-content">
+                            <h3>Thuế quan của Hoa Kỳ có định hình lại thương mại toàn cầu?</h3>
+                            <p class="time">Nguồn LAB Động • 5 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/b4.png" alt="Chủ đề 7">
+                        <div class="article-content">
+                            <h3>Hoa Kỳ áp thuế đối ứng 46%: Lo ngại đứt gãy chuỗi cung ứng toàn cầu</h3>
+                            <p class="time">Nguồn LAB Động • 5 giờ</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="article-section">
+                    <h2>#LUẬT QUẢNG CÁO </h2>
+                    <div class="article">
+                        <img src="chude/c1.png" alt="Chủ đề 8">
+                        <div class="article-content">
+                            <h3>Từ vụ Quang Linh Vlog và Hằng Du mục, sẽ tăng chế tài xử phạt người nổi tiếng quảng cáo sai sự thật</h3>
+                            <p class="time">An Ninh Thủ Đô • 9 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/c1.png" alt="Chủ đề 8">
+                        <div class="article-content">
+                            <h3>Thứ trưởng Bộ Văn hóa: 'Nghệ sĩ quảng cáo sai sẽ bị hạn chế xuất hiện'</h3>
+                            <p class="time">Znew • 9 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/c2.png" alt="Chủ đề 8">
+                        <div class="article-content">
+                            <h3>Người nổi tiếng livestream phải chịu trách nhiệm về sản phẩm quảng cáo</h3>
+                            <p class="time">Tin Tức • 9 giờ</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+                <div class="article-section">
+                    <h2>#Khám phá Việt Nam</h2>
+                    <div class="article">
+                        <img src="chude/d1.png" alt="Chủ đề 10">
+                        <div class="article-content">
+                            <h3>Cận cảnh ngôi chùa được làm từ vỏ ốc ở Cam Ranh</h3>
+                            <p class="time">Tiếp Thị • 3 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/d2.png" alt="Chủ đề 10">
+                        <div class="article-content">
+                            <h3>Chiêm ngưỡng thành cổ đầu tiên ở Việt Nam xây dựng theo hình lục giác</h3>
+                            <p class="time">Tiếp Thị • 3 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/d3.png" alt="Chủ đề 10">
+                        <div class="article-content">
+                            <h3>Rừng mai cổ thụ giữa đại ngàn Đakrông tỉnh Quảng Trị</h3>
+                            <p class="time">Tiếp Thị • 3 giờ</p>
+                        </div>
+                    </div>
+                    <div class="article">
+                        <img src="chude/d4.png" alt="Chủ đề 10">
+                        <div class="article-content">
+                            <h3>Khám phá sự kỳ bí của một trong những hang động lớn nhất thế giới</h3>
+                            <p class="time">Tiếp Thị • 3 giờ</p>
+                        </div>
+                    </div>
+                        
+
+                    
+
+
+
+                </div>
+            </div>
+            <div class="right-content">
+                <br><br><br>
+                <div class="hot-header">
+                    <span class="hot-text">NÓNG 24H</span>
+                    <hr class="hot-underline">
+                </div>
+                <br><br>
+
+
+                <div class="article">
+                    <img src="moi/r1.png" alt="Right Article 7">
+                    <div class="article-content">
+                        <h3>Mỹ áp thuế 46% với hàng hóa Việt Nam: Bộ Công an yêu cầu xử nghiêm việc đầu cơ nâng giá</h3>
+                        <p class="time">Sài Gòn • 21 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r2.png" alt="Right Article 8">
+                    <div class="article-content">
+                        <h3>Đà Nẵng 'khát' nhân sự lĩnh vực AI</h3>
+                        <p class="time">Tiền phong • 11 phút • 35 lượt quan tâm</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r3.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Tổng Bí thư Tô Lâm điện đàm với Tổng thống Hoa Kỳ Donald J.Trump</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r4.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Nhiều nghệ sĩ Việt đến chia buồn với Quốc Thiên tại Đồng Nai</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r5.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Trách nhiệm của bà Nguyễn Thị Kim Tiến trong sai phạm tại Dự án Bệnh viện Bạch Mai - Việt Đức cơ sở 2</h3>
+                        <p class="time">Pháp luật • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r6.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Thêm một học sinh Hà Tĩnh đạt điểm SAT gần tuyệt đối, top 1% thế giới</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="moi/r7.png" alt="Right Article 9">
+                    <div class="article-content">
+                        <h3>Gemini 2.5 Pro - mô hình AI tiên tiến nhất của Google</h3>
+                        <p class="time">Vietnamnet • 24 phút</p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Thanh BỘI TẮC CHÍNH THỨC (Đặt ở cuối trang) -->
+    <div class="official-partners">
+        
+         
+        <div class="top-bar">
+            <div class="top-bar-wrapper">
+                <div class="site-logo">
+                    <a href="#">BÁO MỚI</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Nhập nội dung tìm kiếm">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- Các liên kết chân trang -->
+                <div class="footer-links">
+                    <a href="#">Nóm</a><span class="footer-separator">·</span>
+                    <a href="#">Tin Tức</a><span class="footer-separator">·</span>
+                    <a href="#">Xổ Số Miền Trung</a><span class="footer-separator">·</span>
+                    <a href="#">Bóng Đá</a><span class="footer-separator">·</span>
+                    <a href="#">Tin Thể Giới</a><span class="footer-separator">·</span>
+                    <a href="#">Hoàng Hậu Mathilde</a><span class="footer-separator">·</span>
+                    <a href="#">Lịch Thi Đấu C1</a><span class="footer-separator">·</span>
+                    <a href="#">Tuổi Xông Đất</a><span class="footer-separator">·</span>
+                    <a href="#">Tử Vi</a><span class="footer-separator">·</span>
+                    <a href="#">Sân Bay Yangon</a><span class="footer-separator">·</span>
+                    <a href="#">Donald Trump</a><span class="footer-separator">·</span>
+                    <a href="#">Mỹ</a><br>
+                    
+                    <a href="#">Chelsea</a><span class="footer-separator">·</span>
+                    <a href="#">Bộ Công An</a><span class="footer-separator">·</span>
+                    <a href="#">Liverpool</a><span class="footer-separator">·</span>
+                    <a href="#">Phạm Minh Chính</a><span class="footer-separator">·</span>
+                    <a href="#">Bộ Công An Việt Nam</a><span class="footer-separator">·</span>
+                    <a href="#">Bảo Lộc</a><span class="footer-separator">·</span>
+                    <a href="#">Kim Soo Hyun</a><span class="footer-separator">·</span>
+                    <a href="#">Barcelona</a><span class="footer-separator">·</span>
+                    <a href="#">Thể Thao</a><span class="footer-separator">·</span>
+                    <a href="#">Tin Bóng Đá</a><span class="footer-separator">·</span>
+                    <a href="#">Lịch Thi Đấu Cúp C1</a><br>
+                    
+                    <a href="#">Doanh Nghiệp</a><span class="footer-separator">·</span>
+                    <a href="#">Man City</a><span class="footer-separator">·</span>
+                    <a href="#">Arsenal</a><span class="footer-separator">·</span>
+                    <a href="#">Real Madrid</a><span class="footer-separator">·</span>
+                    <a href="#">Xổ Số Miền Bắc</a><span class="footer-separator">·</span>
+                    <a href="#">Cúp C2</a><span class="footer-separator">·</span>
+                    <a href="#">Bảng Xếp Hạng Ngoại Hạng Anh</a><span class="footer-separator">·</span>
+                    <a href="#">Tổng Thống Mỹ</a><span class="footer-separator">·</span>
+                    <a href="#">Ngoại Hạng Anh</a><span class="footer-separator">·</span>
+                    <a href="#">Việt Nam</a><br>
+                    
+                    <a href="#">Lâm Đồng</a><span class="footer-separator">·</span>
+                    <a href="#">Giá Vàng Hôm Nay</a><span class="footer-separator">·</span>
+                    <a href="#">Liên Bang Nga</a><span class="footer-separator">·</span>
+                    <a href="#">Đào Bảo Lộc</a><span class="footer-separator">·</span>
+                    <a href="#">Lịch Âm</a><span class="footer-separator">·</span>
+                    <a href="#">Vietlott</a><span class="footer-separator">·</span>
+                    <a href="#">Naypyidaw</a><span class="footer-separator">·</span>
+                    <a href="#">Tuyển Việt Nam</a><span class="footer-separator">·</span>
+                    <a href="#">Mandalay</a><span class="footer-separator">·</span>
+                    <a href="#">Trump</a><span class="footer-separator">·</span>
+                    <a href="#">Mu</a><span class="footer-separator">·</span>
+                    <a href="#">Kết Quả Bóng Đá</a><br>
+                    
+                    <a href="#">Phạm Văn Tỷ</a><span class="footer-separator">·</span>
+                    <a href="#">Báo Bóng Đá</a><span class="footer-separator">·</span>
+                    <a href="#">Kon Tum</a><span class="footer-separator">·</span>
+                    <a href="#">Ukraine</a><span class="footer-separator">·</span>
+                    <a href="#">Lịch Thi Đấu Ngoại Hạng Anh</a><span class="footer-separator">·</span>
+                    <a href="#">Thái Tiết</a><span class="footer-separator">·</span>
+                    <a href="#">Pháp Luật</a><span class="footer-separator">·</span>
+                    <a href="#">Xổ Số Miền Nam</a><span class="footer-separator">·</span>
+                    <a href="#">Tết Ất Tỵ</a><span class="footer-separator">·</span>
+                    <a href="#">Hoàng Hậu Bỉ</a><span class="footer-separator">·</span>
+                    <a href="#">Myanmar</a><span class="footer-separator">·</span>
+                    <a href="#">Vàng</a><br>
+                    
+                    <a href="#">Bóng Đá Việt Nam</a><span class="footer-separator">·</span>
+                    <a href="#">Zalo Business Account</a><span class="footer-separator">·</span>
+                    <a href="#">Zalo Cloud</a>
+                </div>
+                
+                <!-- Đường gạch ngang -->
+                <hr class="footer-divider">
+                
+                <!-- Thông tin pháp lý và liên hệ -->
+                <div class="footer-info">
+                    <p>Giấy phép thiết lập trang thông tin điện tử tổng hợp số 1818/GP-TTĐT do Sở Thông tin và Truyền thông Hà Nội cấp ngày 05/05/2017</p>
+                    <p>Đơn vị thiết lập: Công ty cổ phần công nghệ EPI • Chịu trách nhiệm quản lý nội dung: Vũ Trọng Cường</p>
+                    <p>Địa chỉ: Tầng 16, tòa nhà ROX Tower, số 54A Nguyễn Chí Thanh, phường Láng Thượng, quận Đống Đa, thành phố Hà Nội</p>
+                    <p>Điện thoại: (024) 3.562.3555 Email: contact.baomoi@epi.com.vn</p>
+                    <p>BAOMOI tổng hợp và sắp xếp các thông tin từ đông đảo các chương trình máy tính</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+    </html>
+    </div>
+    
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

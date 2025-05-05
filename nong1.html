@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Tin Tức</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+        .share-buttons {
+            position: fixed;
+            left: 20px;
+            top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .share-buttons button {
+            width: 60px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+        }
+        .share-buttons button:nth-child(1) { background-color: #00aaff; }
+        .share-buttons button:nth-child(2) { background-color: #3b5998; }
+        .share-buttons button:nth-child(3) { background-color: #00cc00; }
+        .share-buttons button:nth-child(4) { background-color: #cccccc; }
+        
+        .main-content {
+            flex: 3;
+            margin-right: 20px;
+        }
+        .sidebar {
+            flex: 1;
+        }
+        .category {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .header {
+            font-size: 35px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        .meta span {
+            margin-right: 10px;
+        }
+        .meta .highlight {
+            color: #00aaff;
+            font-weight: bold;
+        }
+        .article {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            
+        }
+        .article img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .article p { /*màu chữ , chữ thường*/
+            font-size: 18px;
+            color: black;
+            line-height: 1.6;
+        }
+        .article .lead { /*chữ đậm*/
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            
+        }
+        .sidebar .article {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .sidebar .article img {
+            width: 100px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        .sidebar .article h3 {
+            font-size: 14px;
+            margin: 0;
+            color: #333;
+        }
+        .sidebar .article .time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        
+        .cangiua{
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hot-header {
+            display: flex;
+            align-items: center;
+        
+            color: #e45116; /* Màu cam */
+        }
+        .textblue{
+            color: #26a69a; /* Màu xanh */
+            font-weight: normal; /* Cỡ chữ thường */
+            text-transform: uppercase; /* Chuyển đổi chữ thành in hoa */
+        }
+        
+        .hot-text, .number-text {
+            font-size: 34px; /* Kích thước chữ */
+            font-weight: normal; /* Cỡ chữ thường */
+            text-transform: uppercase; /* Chuyển đổi chữ thành in hoa */
+            margin-right: 10px; /* Khoảng cách giữa chữ và đường gạch */
+        }
+        
+        .hot-underline {
+            width: 85px; /* Độ rộng của đường gạch */
+            height: 3px; /* Độ dày của đường gạch */
+            background-color: #e45116;
+            margin-left: 3px; /* Khoảng cách giữa chữ và đường gạch */
+            margin-top: 38px; /* Điều chỉnh khoảng cách giữa đường gạch và chữ */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="share-buttons">
+            <button>Zalo</button>
+            <button>FB</button>
+            <button>Like</button>
+            <button>Copy</button>
+           
+        </div>
+        <div class="main-content">
+            
+            <div class="header">
+                Thuế quan đối ứng của Tổng thống Trump đình hình lại thương mại toàn cầu
+            </div>
+            <div class="meta">
+                <span>TIN TỨC</span>
+                <span class="highlight">★</span>
+                <span>31/3/2025</span>
+                <span>1 ĐÁNH GIÁ</span>
+                <span>254 LƯỢT QUAN TÂM</span>
+            </div>
+            <div class="article">
+                 <p class="lead">Chính sách thuế quan đối ứng của Tổng thống Trump đang gây xáo trộn thương mại quốc tế, đặt ra thách thức lớn cho nhiều nền kinh tế.</p>
+                <img src="nong/nong1,1.png" alt="Hình ảnh bài viết chính">
+               
+                <p><div class = "cangiua">Tổng thống Mỹ Donald Trump phát biểu tại Nhà Trắng, Washington, D.C. Ảnh: THX/TTXVN</p></div>
+                <p>Bình luận trên mạng tin China-US Focus (chinausfocus.com) mới đây, chuyên gia Zhang Monan, Phó Giám đốc Viện Nghiên cứu châu Mỹ và châu Âu có trụ sở tại Trung Quốc, cho rằng việc áp dụng thuế quan đối xứng thể hiện thay đổi quan trọng trong chính sách thương mại của Mỹ. Quá trình chuyển từ các cam kết thương mại đa phương sang các thỏa thuận song phương hoặc khu vực là một nỗ lực chiến lược nhằm định nghĩa lại thương mại quốc tế và cuối cùng mang lại cho Mỹ lợi thế.</p>
+                <p><strong>Những nguy cơ bất lợi của chính sách thuế quan đối ứng</strong></p>
+
+                <p>Theo bà Zhang, chính sách thuế quan đối xứng của chính quyền Trump dựa trên ba nguyên tắc chính: Thứ nhất là tỷ lệ thuế quan ngang bằng. Theo dữ liệu của Tổ chức Thương mại Thế giới (WTO) năm 2023, mức thuế trung bình của Mỹ chỉ là 2,2%, thấp hơn nhiều so với các đối tác thương mại lớn như Trung Quốc (3%), Hàn Quốc (8,4%) và Ấn Độ (12%). Chính quyền Trump cho rằng sự chênh lệch này gây bất lợi cho hàng xuất khẩu của Mỹ trên thị trường toàn cầu.</p>
+                <p>Nguyên tắc thứ hai là cân bằng cán cân thương mại. Năm 2023, Trung Quốc, Liên minh châu Âu (EU), Mexico nằm trong số những đối tác đóng góp lớn nhất vào thâm hụt thương mại của Mỹ, với 5 nước đứng đầu chiếm khoảng 3/4 tổng thặng dư. Do đó, chính sách thuế quan đối xứng nhằm giảm thâm hụt này bằng cách áp thuế bổ sung đối với các quốc gia có thặng dư đáng kể.</p>
+                <p>Nguyên tắc thứ ba là ngang bằng của chính sách phi thuế quan. Chính quyền Trump lập luận rằng hệ thống thuế giá trị gia tăng (GTGT) - phổ biến ở nhiều quốc gia nhưng không tồn tại ở Mỹ - hoạt động tương tự như thuế quan và gây bất lợi cho Mỹ. Năm 2023, mức thuế suất thuế GTGT chuẩn trung bình trên 27 quốc gia thành viên EU là 21,5%, trong khi đó Mỹ không có thuế GTGT liên bang, chỉ có thuế bán hàng cấp tiểu bang lên đến 11,5%.</p>
+                <p><strong>Định hình lại thương mại toàn cầu</strong></p>
+
+                <p>Theo bà Zhang, chính sách thuế quan đối xứng thể hiện một thay đổi quan trọng trong chiến lược thương mại của Mỹ: "Việc chuyển từ các cam kết thương mại đa phương sang các thỏa thuận song phương hoặc khu vực là một nỗ lực chiến lược nhằm định nghĩa lại thương mại quốc tế và cuối cùng mang lại cho Mỹ lợi thế".</p>
+                <p>Một nghiên cứu năm 2019 phân tích hơn 600.000 danh mục sản phẩm trên 132 quốc gia cho thấy hơn 2/3 sản phẩm của Mỹ phải chịu mức thuế cao hơn ở nước ngoài so với các sản phẩm nước ngoài tại Mỹ. Dựa trên những số liệu này, chính quyền Trump đã ưu tiên giám sát các biện pháp thuế quan và rào cản thương mại ở các quốc gia có thặng dư thương mại lớn nhất và mức thuế quan cao nhất đối với Mỹ.</p>
+                <p>Chính sách thuế quan đối xứng được kỳ vọng sẽ đóng vai trò là trụ cột trung tâm trong chương trình nghị sự thương mại nhiệm kỳ thứ hai của Tổng thống Trump, thể hiện triết lý "Nước Mỹ trên hết" và tăng cường cách tiếp cận bảo hộ của Washington. Đồng thời, biện pháp này diễn giải lại nguyên tắc đối xứng trong thương mại trong khuôn khổ WTO, thách thức trật tự thương mại đa phương hiện tại.</p>
+                <p>Cho đến nay, chính quyền Tổng thống Trump vẫn chưa thực hiện đầy đủ chính sách thuế quan đối xứng, để lại chỗ cho các cuộc đàm phán thương mại tiềm năng. Các thông tin chỉ ra rằng Ấn Độ, Nhật Bản và Australia đang chuẩn bị cho các thỏa thuận thương mại tiềm tàng để ứng phó với sáng kiến trên.</p>
+                <p>Tuy nhiên, việc áp dụng thuế quan đối xứng đã gây ra căng thẳng trong lĩnh vực thương mại toàn cầu, làm dấy lên nỗi lo về một cuộc chiến tranh thương mại leo thang. Trung Quốc, Canada, EU, Australia và Brazil đã công bố các biện pháp đối phó, trong khi các quốc gia khác đang cân nhắc các hành động tương tự. Đáng chú ý, căng thẳng dường như đang mở rộng từ các tranh cãi song phương sang các cuộc đối đầu đa phương, có khả năng dẫn đến tình trạng bế tắc kinh tế toàn cầu.</p>
+                <p>Đối mặt với chính sách thuế quan cứng rắn của chính quyền Mỹ, các quốc gia trên thế giới - bao gồm cả các đồng minh truyền thống của Mỹ - đang đánh giá lại mối quan hệ thương mại với Washington và tìm kiếm các quan hệ đối tác thay thế. Thay đổi này đang đẩy nhanh quá trình định hình lại động lực thương mại toàn cầu.</p>
+                <p>Như vậy, bằng cách tìm cách định nghĩa lại các quy tắc thương mại quốc tế thông qua chính sách thuế quan đối ứng, Mỹ đang buộc các quốc gia khác phải đánh giá lại và hiệu chỉnh lại chính sách thương mại riêng. Thay đổi này đặt nền tảng cho một chuyển đổi sâu sắc của chế độ thuế quan toàn cầu, gây tác động lâu dài đối với cấu trúc thương mại quốc tế và các mối quan hệ kinh tế giữa các quốc gia.</p>
+                
+            </div>
+        </div>
+        <div class="sidebar">
+            <br><br><br>
+                <div class="hot-header">
+                    <span class="hot-text">NÓNG 24H</span>
+                    <hr class="hot-underline">
+                </div>
+                <br><br>
+            <div class="article">
+                <img src="nong/r1.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Việt Nam vẫn có 'cửa' để đàm phán lại mức thuế với Mỹ</h3>
+                    <div class="time">3 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r2.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Tỷ phú Elon Musk vẫn là cố vấn của Tổng thống Mỹ Donald Trump</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r3.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Bộ GDĐT lý giải yêu cầu quy đổi điểm tương đương giữa các phương thức xét tuyển ĐH</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r4.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Samsung sẽ được hoàn thuế hơn 582 tỉ đồng khi nào?</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r5.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Giá cà phê hôm nay 4/4: Giá cà phê Robusta và Arabica giảm mạnh</h3>
+                    <div class="time">5 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/r6.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Xuất khẩu nông sản sang thị trường Mỹ: Trong nguy có cơ, doanh nghiệp chủ động tìm cơ hội</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong2.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Hà Nội có thể giảm khoảng 50% đơn vị hành chính cấp xã sau sắp xếp bộ máy</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong3.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Trung Quốc sẽ hành động như thế nào với chính sách thuế quan mới của Mỹ?</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong4.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Thuế quan của Tổng thống Donald Trump được tính toán như thế nào?</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong5.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Chính sách thuế của Mỹ: Thủ tướng Tây Ban Nha đề xuất chi hơn 15 tỷ USD để hỗ trợ nền kinh tế</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong6.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>Trung Quốc và loạt nước châu Á phản ứng trước thuế quan của Mỹ</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+            <div class="article">
+                <img src="nong/nong7.png" alt="Hình ảnh bài viết phụ">
+                <div>
+                    <h3>3 nước từ chối cho Mỹ dùng căn cứ không quân để tấn công Iran</h3>
+                    <div class="time">9 giờ</div>
+                </div>
+            </div>
+
+            
+            
+        </div>
+    </div>
+</body>
+</html>
